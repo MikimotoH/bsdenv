@@ -21,7 +21,7 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git mercurial)
+plugins=(git mercurial zsh-syntax-highlighting zsh-history-substring-search)
 
 # Customize to your needs...
 export PATH=/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin
@@ -65,8 +65,7 @@ export TERM=xterm-256color
 export PACKAGESITE=ftp://ftp6.tw.freebsd.org/pub/FreeBSD/ports/amd64/packages-9.1-release/Latest/
 export EDITOR=/usr/local/bin/vim
 setopt extendedglob
-
-plugins=( zsh-syntax-highlighting, zsh-history-substring-search)
+source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # bind UP and DOWN arrow keys
