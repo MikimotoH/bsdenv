@@ -52,6 +52,14 @@ alias vmsg="vim /var/log/messages"
 alias tmsg="tail -f /var/log/messages"
 alias l="ls -Fal"
 alias etags='exctags -R --c-kinds=+p --c-types=+p --fields=+S  --links=no --sort=foldcase .'
+alias hgst='hg status'
+alias hgco='hg commit -m'
+alias hgup='hg update '
+alias hgpu='hg pull'
+alias hgps='hg push'
+alias hgdi='hg diff -bBw'
+alias hgsg='hg sglog|head -33'
+alias md='mkdir -p'
 
 export TERM=xterm-256color
 export PACKAGESITE=ftp://ftp6.tw.freebsd.org/pub/FreeBSD/ports/amd64/packages-9.1-release/Latest/
@@ -59,7 +67,6 @@ export EDITOR=/usr/local/bin/vim
 setopt extendedglob
 
 plugins=( zsh-syntax-highlighting, zsh-history-substring-search)
-source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # bind UP and DOWN arrow keys
@@ -67,5 +74,7 @@ zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 
-
+# Use VIM as man page viewer
+# http://ebergen.net/wordpress/2009/06/04/using-vim-as-a-man-page-viewer/
+export MANPAGER="col -b | vim -c 'set ft=man nomod nolist' -"
 

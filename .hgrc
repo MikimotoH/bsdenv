@@ -4,7 +4,9 @@ ssh = ssh -C
 
 [extensions]
 graphlog = 
+hgext.extdiff =
 prompt = /root/hg-prompt/prompt.py
+color =
 
 [ui]
 merge = vimdiff
@@ -19,3 +21,34 @@ log = log -r :
 slog = log -r : --style=/root/elsvent/mercurial-cli-templates/map-cmdline.slog
 nlog = log -r : --style=/root/elsvent/mercurial-cli-templates/map-cmdline.nlog
 sglog = glog --style=/root/elsvent/mercurial-cli-templates/map-cmdline.sglog
+
+[defaults]
+# suppress noisy extdiff header message
+cdiff = -q
+
+[extdiff]
+cmd.cdiff = colordiff
+opts.cdiff = -uprN
+cmd.opendiff = fmdiff
+
+[color]
+status.modified = blue bold underline red_background
+status.added = green bold
+status.removed = red bold blue_background
+status.deleted = cyan bold underline
+status.unknown = magenta bold underline
+status.ignored = black bold
+qseries.applied = blue bold underline
+qseries.unapplied = black bold
+qseries.missing = red bold
+diff.diffline = bold
+diff.extended = cyan bold
+diff.file_a = red bold
+diff.file_b = green bold
+diff.hunk = magenta
+diff.deleted = red
+diff.inserted = green
+diff.changed = white
+diff.trailingwhitespace = bold red_background
+
+
