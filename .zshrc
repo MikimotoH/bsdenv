@@ -59,6 +59,7 @@ alias hgpu='hg pull'
 alias hgps='hg push'
 alias hgdi='hg diff -bBw'
 alias hgsg='hg sglog|head -33'
+alias gitst='git status'
 alias md='mkdir -p'
 
 export TERM=xterm-256color
