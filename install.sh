@@ -92,6 +92,15 @@ fi
 
 vim -c "helptags ~/.vim/bundle/nerdtree/doc/" -c "helptags ~/.vim/bundle/tagbar/doc/" -c q
 
+if [ -d python-Levenshtein ] ; then
+    echo "Levenshtein is already installed, which is required by Schmallon/clang_complete"
+else
+    echo "install python-Levenshtein, which is required by Schmallon/clang_complete "
+    git clone https://github.com/miohtama/python-Levenshtein.git
+    (cd python-Levenshtein; python ./setup.py install)
+    ln -sf `readlink -f python-Levenshtein` ~/
+fi
+
 if [ -d ~/.vim/bundle/clang_complete ] ; then
     echo "clang_complete already installed in VIM"
 else
