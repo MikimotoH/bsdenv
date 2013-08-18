@@ -51,6 +51,32 @@ else
         git clone git://github.com/majutsushi/tagbar)
 fi
 
+if [ -f ~/.vim/plugin/ack.vim ]; then
+    echo "ack.vim is already installed"
+else
+    echo "Install ack.vim"
+    ( cd ~/.vim; curl -Sso ack.tar.gz \
+        "http://www.vim.org/scripts/download_script.php?src_id=10433";\
+        tar zxvf ack.tar.gz; rm ack.tar.gz )
+fi
+
+if [ -f ~/.vim/plugin/TTrCodeAssistor.vim ] ; then
+    echo "TTrCodeAssistor.vim is already installed"
+else
+    echo "Install TTrCodeAssistor.vim"
+    mkdir -p ~/.vim/plugin
+    curl -Sso ~/.vim/plugin/TTrCodeAssistor.vim "http://www.vim.org/scripts/download_script.php?src_id=7265"
+fi
+
+if [ -f ~/.vim/plugin/acp.vim ] ; then
+    echo "acp.vim(autocomplpop) is already installed"
+else
+    echo "Install acp.vim(autocomplpop)"
+    (cd ~/.vim; curl -Sso acp.zip \
+        "http://www.vim.org/scripts/download_script.php?src_id=11894"; \
+        tar zxvf acp.zip; \
+       rm acp.zip )
+fi
 
 if [ -d ~/.vim/doc ] ; then
     if [ "$(ls -A ~/.vim/doc )" ]; then 
