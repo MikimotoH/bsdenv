@@ -2,6 +2,28 @@
 # pre-requirement:
 #   oh-my-zsh, vim 7.3(+python ) and clang installed
 
+tool_installed(){
+    if hash $1 2>/dev/null; then
+        return 1
+    else
+        return 0
+    fi
+}
+
+if [[ $(tool_installed ack) -eq 0 ]] ; then
+    echo "ack already installed"
+else
+    echo "Install ack"
+    curl "http://beyondgrep.com/ack-2.04-single-file" > /usr/bin/ack && chmod 0755 /usr/bin/ack
+fi
+
+if [ -d ~/.oh-my-zsh ]; then
+    echo "oh-my-zsh is already installed"
+else
+    echo "Install 'oh-my-zsh'"
+    curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+fi
+
 if [ -f ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
     echo "zsh-syntax-highlighting is already installed"
 else
@@ -18,6 +40,7 @@ ln -sf `readlink -f .gitconfig` ~/
 ln -sf `readlink -f .vim` ~/
 ln -sf `readlink -f hg-prompt` ~/
 
+mkdir -p ~/.vim
 
 if [ -f ~/.vim/autoload/pathogen.vim ]; then
     echo "pathogen.vim is already installed"
