@@ -41,7 +41,7 @@ hi CursorLine   cterm=underline ctermbg=darkgray ctermfg=white guibg=darkred gui
 "set number
 
 
-set statusline=%f\ %{tagbar#currenttag('%s','','fs')}%<%=POS=[%l,%v]%p%%
+set statusline=%f\ %{tagbar#currenttag('%s','','f')}%<%=POS=[%l,%v]%p%%
 set laststatus=2
 set title titlestring=%-.355{tagbar#currenttag('%s','','fs')}%<
 
