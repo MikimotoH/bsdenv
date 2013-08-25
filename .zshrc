@@ -77,8 +77,12 @@ alias hgdi='hg diff -bBw'
 alias hgsg='hg sglog|head -33'
 alias gitst='git status'
 alias md='mkdir -p'
+<<<<<<< HEAD
 alias find_largest_dir='du -sx * |sort  -k1 -n -r|head'
 
+=======
+alias find_largest_dir='du -sx * |sort  -k1 -n -r|head' 
+>>>>>>> c52653c179bfe73cce379b3ae12d20293627fee4
 export TERM=xterm-256color
 export PACKAGESITE=ftp://ftp6.tw.freebsd.org/pub/FreeBSD/ports/amd64/packages-9.1-release/Latest/
 export EDITOR=/usr/local/bin/vim
