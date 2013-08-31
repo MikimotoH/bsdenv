@@ -7,3 +7,6 @@
 	helper = cache --timeout=7776000
 [push]
 	default = simple
+[pretty]
+        graph = %Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset
+
