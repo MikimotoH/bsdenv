@@ -41,7 +41,7 @@ hi CursorLine   cterm=underline ctermbg=darkgray ctermfg=white guibg=darkred gui
 "set number
 
 
-set statusline=%f\ %{tagbar#currenttag('%s','','fs')}%<%=POS=[%l,%v]%p%%
+set statusline=%f\ %{tagbar#currenttag('%s','','f')}%<%=POS=[%l,%v]%p%%
 set laststatus=2
 set title titlestring=%-.355{tagbar#currenttag('%s','','fs')}%<
 
@@ -171,9 +171,10 @@ nnoremap <leader>v : exe "ptjump! " .  expand("<cword>")<CR>1<CR>
 
 
 " Clang_complete
-let g:clang_user_options="-std=iso9899:1999"
+let g:clang_user_options="-std=gnu++11"
 let g:clang_use_library=1
-let g:clang_library_path = "/usr/lib"
+let g:clang_library_path = "/usr/local/lib"
+let g:clang_user_options='|| exit 0'
 
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -187,3 +188,5 @@ let g:AutoComplPop_Behavior = {
             \}
 let g:AutoComplPop_CompleteoptPreview = 1
 
+" YouCompleteMe
+let g:ycm_confirm_extra_conf = 0
