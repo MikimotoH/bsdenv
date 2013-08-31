@@ -63,7 +63,7 @@ alias gitst='git status'
 alias md='mkdir -p'
 alias find_largest_dir='du -sx * |sort  -k1 -n -r|head' 
 export TERM=xterm-256color
-export PACKAGESITE=ftp://ftp6.tw.freebsd.org/pub/FreeBSD/ports/amd64/packages-9.1-release/Latest/
+export PACKAGESITE=http://freebsd.ntu.edu.tw/FreeBSD/ports/packages/Latest/
 export EDITOR=/usr/local/bin/vim
 setopt extendedglob
 source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -77,4 +77,4 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 # Use VIM as man page viewer
 # http://ebergen.net/wordpress/2009/06/04/using-vim-as-a-man-page-viewer/
 export MANPAGER="col -b | vim -c 'set ft=man nomod nolist' -"
-
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
