@@ -83,11 +83,7 @@ alias hgsg='hg sglog|head -33'
 alias md='mkdir -p'
 alias find_largest_dir='du -sx * |sort  -k1 -n -r|head'
 export TERM=xterm-256color
-<<<<<<< HEAD
-export PACKAGESITE=http://freebsd.ntu.edu.tw/FreeBSD/ports/packages/Latest/
-=======
 export PACKAGESITE=http://freebsd.ntu.edu.tw/FreeBSD/ports/amd64/packages-9.1-release/Latest/
->>>>>>> e2df47f69ccb185e1988bc1ec3618e2cf94812d9
 export EDITOR=/usr/local/bin/vim
 setopt extendedglob
 source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
