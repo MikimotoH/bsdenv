@@ -40,7 +40,7 @@ elif [[ "$unamestr" == "FreeBSD" ]]; then
 fi
 
 toolchain='clang'
-#toolchain='gcc48'
+#toolchain='gcc49'
 #toolchain='gcc42'
 
 #export CPATH=
@@ -53,17 +53,17 @@ if [[ $toolchain == 'clang' ]]; then
     export CXX='/usr/local/bin/clang++'
     export C_INCLUDE_PATH=':/usr/local/lib/clang/3.3/include'
     export CPLUS_INCLUDE_PATH=':/usr/local/include/c++/v1:/usr/local/include:/usr/include'
-    export LIBRARY_PATH=':/usr/local/lib'
-elif [[ $toolchain == 'gcc48' ]]; then
-    echo 'Set toolchain to gcc48'
-    export CC='/usr/local/bin/gcc48'
+    export LIBRARY_PATH=':/usr/local/lib:/usr/lib'
+elif [[ $toolchain == 'gcc49' ]]; then
+    echo 'Set toolchain to gcc49'
+    export CC='/usr/local/bin/gcc49'
     export CXX='/usr/local/bin/g++48'
-    #alias gcc='/usr/loca/bin/gcc48'
+    #alias gcc='/usr/loca/bin/gcc49'
     #alias g++='/usr/local/bin/g++48'
     #export PATH=/usr/libexec:$PATH
-    #export C_INCLUDE_PATH=:/usr/local/lib/gcc48/gcc/x86_64-portbld-freebsd9.1/4.9.0/include
-    #export CPLUS_INCLUDE_PATH=:/usr/local/lib/gcc48/include/c++
-    #export LIBRARY_PATH=:/usr/local/lib/gcc48:/usr/local/lib/gcc48/gcc/x86_64-portbld-freebsd9.1/4.9.0:/usr/local/libexec/gcc48/gcc/x86_64-portbld-freebsd9.1/4.9.0
+    #export C_INCLUDE_PATH=:/usr/local/lib/gcc49/gcc/x86_64-portbld-freebsd9.1/4.9.0/include
+    #export CPLUS_INCLUDE_PATH=:/usr/local/lib/gcc49/include/c++
+    #export LIBRARY_PATH=:/usr/local/lib/gcc49:/usr/local/lib/gcc49/gcc/x86_64-portbld-freebsd9.1/4.9.0:/usr/local/libexec/gcc49/gcc/x86_64-portbld-freebsd9.1/4.9.0
     #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH
 fi
 
@@ -97,4 +97,3 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 # Use VIM as man page viewer
 # http://ebergen.net/wordpress/2009/06/04/using-vim-as-a-man-page-viewer/
 export MANPAGER="col -b | vim -c 'set ft=man nomod nolist' -"
-export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
