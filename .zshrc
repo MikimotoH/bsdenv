@@ -68,6 +68,7 @@ elif [[ $toolchain == 'gcc49' ]]; then
 fi
 
 #My Alias
+alias gombp='ssh -p 2624 root@192.168.1.200'
 alias cmsg='echo /dev/null > /var/log/messages'
 alias vmsg='vim /var/log/messages'
 alias tmsg='tail -f /var/log/messages'
@@ -82,6 +83,9 @@ alias hgdi='hg diff -bBw'
 alias hgsg='hg sglog|head -33'
 alias md='mkdir -p'
 alias find_largest_dir='du -sx * |sort  -k1 -n -r|head'
+# 131 is mercurial, 200 is mbp, 57 is ETToday channel, -f is background, -N is do NOT execute remote command
+alias gopicor="ssh -f -N -L localhost:57131:192.168.1.131:22 -L localhost:57200:192.168.1.200:22 picoral@picoral.dyns.cx"
+
 export TERM=xterm-256color
 export PACKAGESITE=http://freebsd.ntu.edu.tw/FreeBSD/ports/amd64/packages-9.1-release/Latest/
 export EDITOR=/usr/local/bin/vim
