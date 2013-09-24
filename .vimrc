@@ -73,7 +73,13 @@ command -bar Hexmode call ToggleHex()
 function Exctags()
     :!exctags -R --c-kinds=+p --c-types=+p --fields=+S  --links=no --sort=foldcase . 
 endfunction
-nnoremap <C-[>t : exe "call Exctags()"<CR>
+nnoremap <C-[>l :exe "call Exctags()"<CR>
+
+function PyclewnMapKeys()
+    :Cmapkeys
+    :C set print pretty on
+    :nnoremap <C-p> :exe "C print " . expand("<cword>")<CR>
+endfunction
 
 " helper function to toggle hex mode
 function ToggleHex()
@@ -167,7 +173,8 @@ nnoremap gr gd[{V%:s/<C-R>///gc<left><left><left>
 nnoremap gR gD:%s/<C-R>///gc<left><left><left>
 
 " preview window
-nnoremap <leader>v : exe "ptjump! " .  expand("<cword>")<CR>1<CR>
+nnoremap <leader>v : exe "ptag! " .  expand("<cword>")<CR>1<CR>
+nnoremap <C-[>] :exe "tag! " .  expand("<cword>")<CR>
 
 
 " Clang_complete

@@ -57,14 +57,12 @@ if [[ $toolchain == 'clang' ]]; then
 elif [[ $toolchain == 'gcc49' ]]; then
     echo 'Set toolchain to gcc49'
     export CC='/usr/local/bin/gcc49'
-    export CXX='/usr/local/bin/g++48'
-    #alias gcc='/usr/loca/bin/gcc49'
-    #alias g++='/usr/local/bin/g++48'
-    #export PATH=/usr/libexec:$PATH
+    export CXX='/usr/local/bin/g++49'
     #export C_INCLUDE_PATH=:/usr/local/lib/gcc49/gcc/x86_64-portbld-freebsd9.1/4.9.0/include
-    #export CPLUS_INCLUDE_PATH=:/usr/local/lib/gcc49/include/c++
+    export CPLUS_INCLUDE_PATH=:/usr/local/lib/gcc49/include/c++
     #export LIBRARY_PATH=:/usr/local/lib/gcc49:/usr/local/lib/gcc49/gcc/x86_64-portbld-freebsd9.1/4.9.0:/usr/local/libexec/gcc49/gcc/x86_64-portbld-freebsd9.1/4.9.0
     #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH
+    ##export PATH=/usr/libexec:$PATH
 fi
 
 #My Alias
@@ -89,6 +87,9 @@ alias gopicor="ssh -f -N -L localhost:57131:192.168.1.131:22 -L localhost:57200:
 export TERM=xterm-256color
 export PACKAGESITE=http://freebsd.ntu.edu.tw/FreeBSD/ports/amd64/packages-9.1-release/Latest/
 export EDITOR=/usr/local/bin/vim
+export MYVIMRC=/root/.vimrc
+export VIM=/usr/local/share/vim/vim74
+export VIMRUNTIME=/usr/local/share/vim/vim74
 setopt extendedglob
 source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
