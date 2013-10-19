@@ -19,16 +19,13 @@ filetype plugin indent on
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
-silent! unmap <F1>
-silent! unmap <C-[>OP
-nnoremap <C-[>OP :NERDTreeToggle<CR>
-nnoremap <leader>. :CtrlPTag<cr>
+nnoremap <F7> :NERDTreeToggle<CR> 
 nnoremap <F8> :TagbarToggle<CR>
 
 set tabstop=8 expandtab shiftwidth=4 softtabstop=4
 set cindent 
 set cino=g0
-set exrc " external .vimrc for each project folder
+"set exrc " external .vimrc for each project folder
 set backspace=2  " allow backspacing over everything in insert mode
 set autoread
 set ruler        " always show cursor position
@@ -61,28 +58,22 @@ if has('cscope')
   cnoreabbrev css cs show
   cnoreabbrev csh cs help
 
-  command -nargs=0 Cscope cs add $VIMSRC/src/cscope.out $VIMSRC/src
+  command! -nargs=0 Cscope cs add $VIMSRC/src/cscope.out $VIMSRC/src
 endif
 
 
 "-----------
 " Tip 1518 Improved hex editing
 " ex command for toggling hex mode - define mapping if desired
-command -bar Hexmode call ToggleHex()
+command! -bar Hexmode call ToggleHex()
 
-function Exctags()
-    :!exctags -R --c-kinds=+p --c-types=+p --fields=+S  --links=no --sort=foldcase . 
-endfunction
-nnoremap <C-[>l :exe "call Exctags()"<CR>
-
-function PyclewnMapKeys()
-    :Cmapkeys
-    :C set print pretty on
-    :nnoremap <C-p> :exe "C print " . expand("<cword>")<CR>
-endfunction
+" Alt-L to reload tags
+" map <C-[>l 
+map <C-L> :!exctags -R --c-kinds=+p --c-types=+p --fields=+S  --links=no --sort=foldcase . <CR><CR>
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " helper function to toggle hex mode
-function ToggleHex()
+function! ToggleHex()
   " hex mode should be considered a read-only operation
   " save values for modified and read-only for restoration later,
   " and clear the read-only flag for now
@@ -152,12 +143,12 @@ set wildmode=longest,list:longest
 set wildmode=longest,list,full
 set wildmenu
 
-set tags+=/usr/include/tags   
+set tags+=/usr/src/sys/amd64/include/tags,/usr/src/sys/x86/include/tags,/usr/src/sys/tags,/usr/include/tags   
 " ,./tags,tags;
 
 " Tip 1235
 " Use embedded Python Calculator
-:command! -nargs=+ Calc :py print <args>
+command! -nargs=+ Calc :py print <args>
 :py from math import *
 
 
@@ -173,15 +164,16 @@ nnoremap gr gd[{V%:s/<C-R>///gc<left><left><left>
 nnoremap gR gD:%s/<C-R>///gc<left><left><left>
 
 " preview window
-nnoremap <leader>v : exe "ptag! " .  expand("<cword>")<CR>1<CR>
-nnoremap <C-[>] :exe "tag! " .  expand("<cword>")<CR>
+nnoremap <leader>v : exe "ptag! " .  expand("<cword>")<CR>
+" Alt-] ; You have to set iTerm alt(option)⌥  to send ESC+
+nnoremap <C-[>] : exe "tag! " . expand("<cword>")<CR>
 
 
 " Clang_complete
-let g:clang_user_options="-std=gnu++11"
-let g:clang_use_library=1
 let g:clang_library_path = "/usr/local/lib"
-let g:clang_user_options='|| exit 0'
+let g:clang_complete_auto=1
+let g:clang_user_options="-std=gnu11"
+let g:clang_use_library=1
 
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim

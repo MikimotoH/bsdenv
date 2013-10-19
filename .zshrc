@@ -38,27 +38,21 @@ ZSH_THEME="rkj-repos"
 plugins=(git mercurial zsh-syntax-highlighting )
 
 # Customize to your needs...
-export PATH='/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+export PATH='/root/sg3_utils-1.37b9r512/src:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
 source $ZSH/oh-my-zsh.sh
 
 # Platform Check
 
-platform="unknown"
-unamestr=$(uname)
-if [[ "$unamestr" == "Linux" ]]; then
-    platform="linux"
-elif [[ "$unamestr" == "Darwin" ]]; then
-    platform="mac"
-elif [[ "$unamestr" == "FreeBSD" ]]; then
-    platform="freebsd"
-fi
+platform="freebsd"
 
-toolchain='clang'
+#toolchain='clang'
 #toolchain='gcc49'
-#toolchain='gcc42'
+toolchain='gcc42'
 
 #export CPATH=
-#export C_INCLUDE_PATH=
+export C_INCLUDE_PATH=':/usr/include'
+export CC='/usr/bin/gcc'
+export CXX='/usr/bin/g++'
 #export OBJC_INCLUDE_PATH
 echo '===== Config toolchain Environment ====='
 if [[ $toolchain == 'clang' ]]; then
@@ -92,14 +86,14 @@ alias hgup='hg update '
 alias hgpu='hg pull'
 alias hgps='hg push'
 alias hgdi='hg diff -bBw'
-alias hgsg='hg sglog|head -33'
+alias hgsg='hg sglog|head -43'
 alias md='mkdir -p'
 alias find_largest_dir='du -sx * |sort  -k1 -n -r|head'
 # 131 is mercurial, 200 is mbp, 57 is ETToday channel, -f is background, -N is do NOT execute remote command
 alias gopicor="ssh -f -N -L localhost:57131:192.168.1.131:22 -L localhost:57200:192.168.1.200:22 picoral@picoral.dyns.cx"
 
 export TERM=xterm-256color
-export PACKAGESITE=http://freebsd.ntu.edu.tw/FreeBSD/ports/amd64/packages-9.1-release/Latest/
+export PACKAGESITE=http://freebsd.ntu.edu.tw/FreeBSD/ports/amd64/packages-9.2-release/Latest/
 export EDITOR=/usr/local/bin/vim
 export MYVIMRC=/root/.vimrc
 export VIM=/usr/local/share/vim/vim74
@@ -116,3 +110,4 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 # Use VIM as man page viewer
 # http://ebergen.net/wordpress/2009/06/04/using-vim-as-a-man-page-viewer/
 export MANPAGER="col -b | vim -c 'set ft=man nomod nolist' -"
+kenv pi.max_bplm_emulator_memory=1
