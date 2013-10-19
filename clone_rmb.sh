@@ -12,14 +12,19 @@ ln -sf ~/.vim/bundle/YouCompleteMe/python/libclang.so /usr/local/lib/libclang.so
 scp -C $rmb:/usr/local/lib/libc++.so.1 /usr/local/lib/libc++.so.1
 scp -Cr $rmb:~/.vim ~/
 scp -C $rmb:~/.vimrc ~/
-mkdir -p ~/picoral
-scp -C $rmb:~/qlogic-drv/.ycm_extra_conf.py ~/picoral
+scp -C $rmb:~/.ycm_extra_conf.py ~/
+
+# hg
 scp -C $rmb:~/.hgrc ~/
-scp -C $rmb:~/.zshrc ~/
 scp -Cr $rmb:~/hg-prompt ~/
+scp -Cr $rmb:~/mercurial-cli-templates ~/
+# zsh
+scp -C $rmb:~/.zshrc ~/
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-history-substring-search ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search
 scp -C $rmb:~/.oh-my-zsh/themes/rkj-repos.zsh-theme ~/.oh-my-zsh/themes/rkj-repos.zsh-theme
+
+# vim utilities
 scp -C $rmb:/usr/local/bin/exctags /usr/local/bin/exctags
 scp -C $rmb:/usr/local/bin/ack /usr/local/bin/ack
 echo "finished"
