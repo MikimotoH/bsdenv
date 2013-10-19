@@ -35,15 +35,12 @@ ZSH_THEME="rkj-repos"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git mercurial zsh-syntax-highlighting )
+plugins=(git mercurial zsh-syntax-highlighting zsh-history-substring-search )
 
 # Customize to your needs...
 export PATH='/root/sg3_utils-1.37b9r512/src:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
 source $ZSH/oh-my-zsh.sh
 
-# Platform Check
-
-platform="freebsd"
 
 #toolchain='clang'
 #toolchain='gcc49'
