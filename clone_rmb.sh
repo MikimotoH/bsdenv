@@ -20,4 +20,6 @@ scp -Cr $rmb:~/hg-prompt ~/
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-history-substring-search ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search
 scp -C $rmb:~/.oh-my-zsh/themes/rkj-repos.zsh-theme ~/.oh-my-zsh/themes/rkj-repos.zsh-theme
+scp -C $rmb:/usr/local/bin/exctags /usr/local/bin/exctags
+scp -C $rmb:/usr/local/bin/ack /usr/local/bin/ack
 echo "finished"
