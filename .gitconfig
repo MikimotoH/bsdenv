@@ -14,8 +14,6 @@ lg = !"git lg1"
 [pretty]
         graph = %Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset
 
-[credentail]
-	helper = osxkeychain
 [core]
 	editor = vim
 [merge]
