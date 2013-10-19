@@ -27,7 +27,8 @@ if [ -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
 else
     echo "Install zsh-syntax-highlighting.git"
     (mkdir -p ~/.oh-my-zsh/custom/plugins; cd ~/.oh-my-zsh/custom/plugins; \
-        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git )
+        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git; \
+        git clone https://github.com/zsh-users/zsh-history-substring-search )
 fi
 
 ln -sf `readlink -f hg-prompt` ~/
@@ -88,6 +89,9 @@ else
     print "make empty ~/.vim/doc/"
     mkdir -p ~/.vim/doc
 fi
+
+[[ -d /usr/local/share/vim/vim74 ]] || ln -s /usr/local/share/vim/vim73 /usr/local/share/vim/vim74
+
 
 vim -c "helptags ~/.vim/bundle/nerdtree/doc/" -c "helptags ~/.vim/bundle/tagbar/doc/" -c q
 
